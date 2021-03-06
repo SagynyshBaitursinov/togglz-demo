@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function docker() {
+  docker-compose -p togglz-demo-postgresql --file ./docker-compose/postgres.yaml up --detach
+}
+
+function app() {
+  docker
+  mvn spring-boot:run
+}
+
+"$@"
